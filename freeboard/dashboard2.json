@@ -1,0 +1,233 @@
+{
+	"version": 1,
+	"allow_edit": true,
+	"plugins": [],
+	"panes": [
+		{
+			"title": "LDR",
+			"width": 1,
+			"row": {
+				"2": 1,
+				"3": 5
+			},
+			"col": {
+				"2": 1,
+				"3": 1
+			},
+			"col_width": 1,
+			"widgets": [
+				{
+					"type": "text_widget",
+					"settings": {
+						"size": "regular",
+						"value": "datasources[\"BLYNK READ V3\"][0]",
+						"sparkline": true,
+						"animate": true
+					}
+				}
+			]
+		},
+		{
+			"title": "DISTANCE",
+			"width": 1,
+			"row": {
+				"2": 1,
+				"3": 1
+			},
+			"col": {
+				"2": 2,
+				"3": 2
+			},
+			"col_width": 1,
+			"widgets": [
+				{
+					"type": "text_widget",
+					"settings": {
+						"size": "regular",
+						"value": "datasources[\"BLYNK READ V4\"][0]",
+						"sparkline": true,
+						"animate": true
+					}
+				}
+			]
+		},
+		{
+			"title": "SET SERVO",
+			"width": 1,
+			"row": {
+				"2": 7,
+				"3": 1
+			},
+			"col": {
+				"2": 1,
+				"3": 3
+			},
+			"col_width": 1,
+			"widgets": [
+				{
+					"type": "slider_plugin",
+					"settings": {
+						"min": "0",
+						"max": "180",
+						"url": "http://blynk-cloud.com/oezXn3Y8IEaPN9bbxV2QJUFVHjvMlWl0/update/V2?value=%VALUE%"
+					}
+				}
+			]
+		},
+		{
+			"title": "TOGGLE GREEN",
+			"width": 1,
+			"row": {
+				"2": 7,
+				"3": 5
+			},
+			"col": {
+				"2": 2,
+				"3": 3
+			},
+			"col_width": 1,
+			"widgets": [
+				{
+					"type": "actuator",
+					"settings": {
+						"urlOn": "http://blynk-cloud.com/oezXn3Y8IEaPN9bbxV2QJUFVHjvMlWl0/update/V0?value=1",
+						"urlOff": "http://blynk-cloud.com/oezXn3Y8IEaPN9bbxV2QJUFVHjvMlWl0/update/V0?value=0",
+						"on_text": "Turn On",
+						"off_text": "Turn Off"
+					}
+				}
+			]
+		},
+		{
+			"title": "TOGGLE RED",
+			"width": 1,
+			"row": {
+				"2": 11,
+				"3": 9
+			},
+			"col": {
+				"2": 1,
+				"3": 3
+			},
+			"col_width": 1,
+			"widgets": [
+				{
+					"type": "actuator",
+					"settings": {
+						"urlOn": "http://blynk-cloud.com/oezXn3Y8IEaPN9bbxV2QJUFVHjvMlWl0/update/V1?value=1",
+						"urlOff": "http://blynk-cloud.com/oezXn3Y8IEaPN9bbxV2QJUFVHjvMlWl0/update/V1?value=1",
+						"on_text": "Turn On",
+						"off_text": "Turn Off"
+					}
+				}
+			]
+		},
+		{
+			"title": "LDR VALUE",
+			"width": 1,
+			"row": {
+				"2": 11,
+				"3": 11
+			},
+			"col": {
+				"2": 2,
+				"3": 1
+			},
+			"col_width": 1,
+			"widgets": [
+				{
+					"type": "gauge",
+					"settings": {
+						"value": "datasources[\"BLYNK READ V3\"][0]",
+						"min_value": "150",
+						"max_value": "650"
+					}
+				}
+			]
+		},
+		{
+			"width": 1,
+			"row": {
+				"2": 15,
+				"3": 7
+			},
+			"col": {
+				"2": 1,
+				"3": 2
+			},
+			"col_width": 1,
+			"widgets": [
+				{
+					"type": "gauge",
+					"settings": {
+						"value": "datasources[\"BLYNK READ V4\"][0]",
+						"min_value": 0,
+						"max_value": "400"
+					}
+				}
+			]
+		},
+		{
+			"width": 1,
+			"row": {
+				"2": 23,
+				"3": 19
+			},
+			"col": {
+				"2": 1,
+				"3": 1
+			},
+			"col_width": 5,
+			"widgets": [
+				{
+					"type": "highcharts-timeseries",
+					"settings": {
+						"timeframe": 60,
+						"blocks": "5",
+						"chartType": "spline",
+						"xaxis": "{\"title\":{\"text\" : \"Time\"}, \"type\": \"datetime\", \"floor\":0}",
+						"yaxis": "{\"title\":{\"text\" : \"Values\"}, \"minorTickInterval\":\"auto\", \"floor\":0}",
+						"series1": "datasources[\"BLYNK READ V3\"][0]",
+						"series1label": "BRIGHTNESS",
+						"series2": "datasources[\"BLYNK READ V4\"][0]",
+						"series2label": "DISTANCE"
+					}
+				}
+			]
+		},
+		{
+			"width": 1,
+			"row": {
+				"3": 1
+			},
+			"col": {
+				"3": 1
+			},
+			"col_width": 1,
+			"widgets": []
+		}
+	],
+	"datasources": [
+		{
+			"name": "BLYNK READ V3",
+			"type": "JSON",
+			"settings": {
+				"url": "http://blynk-cloud.com/oezXn3Y8IEaPN9bbxV2QJUFVHjvMlWl0/get/V3",
+				"use_thingproxy": true,
+				"refresh": 8,
+				"method": "GET"
+			}
+		},
+		{
+			"name": "BLYNK READ V4",
+			"type": "JSON",
+			"settings": {
+				"url": "http://blynk-cloud.com/oezXn3Y8IEaPN9bbxV2QJUFVHjvMlWl0/get/V4",
+				"use_thingproxy": true,
+				"refresh": 8,
+				"method": "GET"
+			}
+		}
+	],
+	"columns": 3
+}
